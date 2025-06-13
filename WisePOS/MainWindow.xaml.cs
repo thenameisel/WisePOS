@@ -20,5 +20,17 @@ namespace WisePOS
         {
             InitializeComponent();
         }
+
+        private void numPadClick(object sender, RoutedEventArgs e)
+        {
+
+            if (sender is Button button)
+            {
+                // Handle button click event
+                string buttonContent = button.Content.ToString();
+                MessageBox.Show("Button clicked: " + buttonContent);
+            }
+            
+        }
     }
 }
