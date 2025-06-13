@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Diagnostics.Eventing.Reader;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,6 +18,16 @@ namespace WisePOS
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        decimal calcValue = 0;
+        decimal numOne = 0;
+        decimal numTwo = 0;
+        //string operation = "";
+        bool isDecimal = false;
+        bool hasQuantity = false;
+        bool hasPrice = false;
+        int decimalPlaces = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -24,13 +36,57 @@ namespace WisePOS
         private void numPadClick(object sender, RoutedEventArgs e)
         {
 
-            if (sender is Button button)
+            if (calcDisplay.Text.Length < 11)
             {
-                // Handle button click event
-                string buttonContent = button.Content.ToString();
-                MessageBox.Show("Button clicked: " + buttonContent);
+                Button b = (Button)sender;
+                if (isDecimal)
+                {
+                    decimalPlaces++;
+                    calcValue += decimal.Parse(b.Content.ToString()) / (decimal)Math.Pow(10, decimalPlaces);
+                    calcDisplay.Text = calcValue.ToString();
+
+                }
+                else
+                {
+                    calcValue = (calcValue * 10) + decimal.Parse(b.Content.ToString());
+                    calcDisplay.Text = calcValue.ToString();
+                }
             }
-            
+
+        }
+
+        private void periodEntryClick(object sender, EventArgs e)
+        {
+            if (calcDisplay.Text.Length < 12 && isDecimal != true)
+            {
+                calcDisplay.Text += ".";
+                isDecimal = true;
+            }
+        }
+
+        // x button
+        private void timesButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (calcValue == 0)
+            {
+                MessageBox.Show("Please enter a price first.");
+                return;
+            }
+            hasPrice = true;
+            numOne = calcValue;
+            calcDisplay.Text = "0";
+            calcValue = 0;
+
+        }
+
+
+        // add button
+        private void addButtonClick(object sender, RoutedEventArgs e)
+        {
+            numTwo = calcValue;
+            calcDisplay.Text = "0";
+            calcValue = 0;
+            hasQuantity = true;
         }
     }
 }

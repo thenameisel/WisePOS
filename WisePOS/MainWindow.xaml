@@ -6,8 +6,23 @@
         xmlns:local="clr-namespace:WisePOS"
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="1200">
-    <Grid>
-        <Button x:Name="numPad7" Content="7" Click="numPadClick" HorizontalAlignment="Left" Margin="980,84,0,0" VerticalAlignment="Top" Height="37" Width="33"/>
+    <Grid Margin="1020,40,30,40">
 
+        <TextBox x:Name="calcDisplay" Height="30" Margin="10,10,10,514" Text="0" FontSize="20" HorizontalContentAlignment="Right" />
+
+        <Button x:Name="numPad7" Content="7" Click="numPadClick" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPad8" Content="8" Click="numPadClick" HorizontalAlignment="Left" Margin="55,90,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPad9" Content="9" Click="numPadClick" HorizontalAlignment="Left" Margin="100,90,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPad4" Content="4" Click="numPadClick" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPad5" Content="5" Click="numPadClick" HorizontalAlignment="Left" Margin="55,135,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPad6" Content="6" Click="numPadClick" HorizontalAlignment="Left" Margin="100,135,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPad1" Content="1" Click="numPadClick" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPad2" Content="2" Click="numPadClick" HorizontalAlignment="Left" Margin="55,180,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPad3" Content="3" Click="numPadClick" HorizontalAlignment="Left" Margin="100,180,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPad0" Content="0" Click="numPadClick" HorizontalAlignment="Left" Margin="55,225,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPadPeriod" Content="." Click="periodEntryClick" HorizontalAlignment="Left" Margin="100,225,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPadX" Content="x" Click="timesButtonClick" HorizontalAlignment="Left" Margin="10,225,0,0" VerticalAlignment="Top" Height="40" Width="40"/>
+        <Button x:Name="numPadAdd" Content="Add" Click="addButtonClick" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Height="40" Width="130"/>
+        
     </Grid>
 </Window>
